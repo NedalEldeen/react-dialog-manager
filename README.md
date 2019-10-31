@@ -295,7 +295,8 @@ This module is responsible for handling the instantiation of DialogManager and a
 
 **Example**  
 ```js
-const dm = createDialogManager();<DialogManagerComponent dialogManager="dm" />
+const dm = createDialogManager();
+<DialogManagerComponent dialogManager="dm" />
 ```
 
 ***
@@ -321,7 +322,8 @@ It will instantiate a new instance of DialogManager and store it as last instanc
 <a name="module_react-dialog-manager.getLastDMInstance"></a>
 
 #### react-dialog-manager.getLastDMInstance(setting, instanceName) ⇒ [<code>DialogManager</code>](#DialogManager)
-Returns the last instance of DialogManger with the same provided instanceName param.In case of, there is no previous instance, it instantiates new one and returns it.
+Returns the last instance of DialogManger with the same provided instanceName param.
+In case of, there is no previous instance, it instantiates new one and returns it.
 
 **Returns**: [<code>DialogManager</code>](#DialogManager) - dialogManager  
 **Params**
@@ -348,7 +350,8 @@ Returns the last instance of DialogManger with the same provided instanceName pa
 <a name="new_DialogManager_new"></a>
 
 #### new DialogManager(setting, [instanceName])
-The instantiation of this class is done by [createDialogManager](#module_react-dialog-manager.createDialogManager)
+The instantiation of this class is done by 
+[createDialogManager](#module_react-dialog-manager.createDialogManager)
 
 **Params**
 
@@ -358,7 +361,9 @@ The instantiation of this class is done by [createDialogManager](#module_react-
 
 **Example**  
 ```js
-import {createDialogManager} from 'react-dialog-manager';const dm = createDialogManager({}, 'baseDM');
+import {createDialogManager} from 'react-dialog-manager';
+
+const dm = createDialogManager({}, 'baseDM');
 ```
 
 ***
@@ -444,7 +449,8 @@ Removes (splices) the dialog instance from dialogs,
 <a name="new_Dialog_new"></a>
 
 #### new Dialog(definition, dialogMananger, [instanceName])
-The instantiation of this class is done by [createDialog](#DialogManager+createDialog) of [DialogManager](#DialogManager)
+The instantiation of this class is done by 
+[createDialog](#DialogManager+createDialog) of [DialogManager](#DialogManager)
 
 **Params**
 
@@ -466,7 +472,10 @@ The instantiation of this class is done by [createDialog](#DialogManager+create
 
 **Example**  
 ```js
-import {createDialogManager} from 'react-dialog-manager';const dm = createDialogManager({}, 'baseDM');const dialog = dm.createDialog({});
+import {createDialogManager} from 'react-dialog-manager';
+
+const dm = createDialogManager({}, 'baseDM');
+const dialog = dm.createDialog({});
 ```
 
 ***
@@ -482,14 +491,16 @@ Add event handler(s) before (open - done - close) actions.
 
 **Example**  
 ```js
-dialog.before('open', (dialog) => true );dialog.before('done', [(dialog) => true, (dialog) => true] );
+dialog.before('open', (dialog) => true );
+dialog.before('done', [(dialog) => true, (dialog) => true] );
 ```
 
 ***
 <a name="Dialog+close"></a>
 
 #### dialog.close()
-First, we invoke all attached-event-handlers of before_close.All handlers should return true to go furhter and close (hide) the dialog.
+First, we invoke all attached-event-handlers of before_close.
+All handlers should return true to go furhter and close (hide) the dialog.
 
 
 ***
@@ -576,14 +587,16 @@ Add event handler(s) once (open - done - close) actions are performed.
 
 **Example**  
 ```js
-dialog.on('done', (dialog) => console.log('dialog has been done') );dialog.on('close', [(dialog) => console.log('dialog has been closed'), (dialog) => true] );
+dialog.on('done', (dialog) => console.log('dialog has been done') );
+dialog.on('close', [(dialog) => console.log('dialog has been closed'), (dialog) => true] );
 ```
 
 ***
 <a name="Dialog+open"></a>
 
 #### dialog.open()
-First, we invoke all attached-event-handlers of before_open.All handlers should return true to go furhter and open (show) the dialog.
+First, we invoke all attached-event-handlers of before_open.
+All handlers should return true to go furhter and open (show) the dialog.
 
 
 ***
@@ -599,7 +612,13 @@ set definition for the dialog
 
 **Example**  
 ```js
-let dialogManager = createDialogsManager();let dialog = dialogManager.createDialog();dialog.set({	title: 'Hello World!',	body: 'good morning'});dialog.set('title', 'New Title Here');
+let dialogManager = createDialogsManager();
+let dialog = dialogManager.createDialog();
+dialog.set({
+	title: 'Hello World!',
+	body: 'good morning'
+});
+dialog.set('title', 'New Title Here');
 ```
 
 ***
