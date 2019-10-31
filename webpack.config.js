@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-	watch: true,
+	//watch: true,
 	mode: 'production',
 	entry: './src/index.js',
 	output: {

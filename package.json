@@ -6,8 +6,9 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "webpack",
-		"test": "jest --watchAll",
-		"readme": "node ./.README/generateREADME.js"
+		"test": "jest --watch",
+		"readme": "node ./.README/generateREADME.js",
+		"prepublishOnly": "npm run build && npm run readme"
 	},
 	"files": [
 		"dist"
@@ -46,8 +47,8 @@
 		"url": "https://github.com/NedalEldeen"
 	},
 	"repository": {
-		"type" : "git",
-		"url" : "https://github.com/NedalEldeen/react-dialog-manager"
+		"type": "git",
+		"url": "https://github.com/NedalEldeen/react-dialog-manager"
 	},
 	"homepage": "https://github.com/NedalEldeen/react-dialog-manager/#readme",
 	"bugs": "https://github.com/NedalEldeen/react-dialog-manager/issues",

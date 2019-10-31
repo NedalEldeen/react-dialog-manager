@@ -27,45 +27,45 @@ import {createDialogManager, DialogManagerComponent} from 'react-dialog-manager'
 
 const dialogManager = createDialogManager();
 const dialog = dialogManager.createDialog({
-  title: 'The Dialog Title',
-  body: <TestForm  />
+	title: 'The Dialog Title',
+	body: <TestForm  />
 });
 
 class App extends React.Component{
 
-  constructor(props){
-    super(props);
-  }
+	constructor(props){
+		super(props);
+	}
 
-  onOpenBtnClicked(){
-    dialog.open();
-  }
+	onOpenBtnClicked(){
+		dialog.open();
+	}
 
-  onCloseBtnClicked(){
-    dialog.close();
-  }
+	onCloseBtnClicked(){
+		dialog.close();
+	}
 
-  render(){
-    return (
-      <div className="App">
-        <div>
-          <button onClick={this.onOpenBtnClicked.bind(this)}>Open Dialog</button>
-          <button onClick={this.onCloseBtnClicked.bind(this)}>Close Dialog</button>
-        </div>
-        <DialogManagerComponent manager={dialogManager} />
-      </div>
-    );
-  }
+	render(){
+		return (
+			<div className="App">
+				<div>
+					<button onClick={this.onOpenBtnClicked.bind(this)}>Open Dialog</button>
+					<button onClick={this.onCloseBtnClicked.bind(this)}>Close Dialog</button>
+				</div>
+				<DialogManagerComponent manager={dialogManager} />
+			</div>
+		);
+	}
 }
 
 function TestForm(props){
-  /* dialog is passed within props */
-  let {dialog} = props;
-  return (
-    <form>
-      <input type="text" />
-    </form>
-  );
+	/* dialog is passed within props */
+	let {dialog} = props;
+	return (
+		<form>
+			<input type="text" />
+		</form>
+	);
 }
 
 export default App;
@@ -105,52 +105,52 @@ Let's go throght some examples.
 ```JSX
 import React from 'react';
 import {
-  createDialogManager,
-  DialogManagerComponent
+	createDialogManager,
+	DialogManagerComponent
  } from 'react-dialog-manager';
 
 
 const dialogManager = createDialogManager({}, 'BASE_DM');
 const dialogA = dialogManager.createDialog({
-  title: 'The Dialog Title',
-  body: (
-    <div>
-      <p>Hello World</p>
-    </div>
-    )
+	title: 'The Dialog Title',
+	body: (
+		<div>
+			<p>Hello World</p>
+		</div>
+		)
 });
 
 class App extends React.Component{
 
-  constructor(props){
-    super(props);
-  }
+	constructor(props){
+		super(props);
+	}
 
-  onBtnAClicked(){
-    dialogA.open();
-  }
+	onBtnAClicked(){
+		dialogA.open();
+	}
 
-  onBtnBClicked(){
-    let definition = {
-      title: 'Dialog B',
-      body: 'the body content'
-    };
-    let dialogInstanceName = 'DIALOG_B';
-    /* will get dialogInstance of 'DIALOG_B'. In case of not existing -> create new one */
-    dialogManager.getLastDialogInstance(definition, dialogInstanceName).open();
-  }
+	onBtnBClicked(){
+		let definition = {
+			title: 'Dialog B',
+			body: 'the body content'
+		};
+		let dialogInstanceName = 'DIALOG_B';
+		/* will get dialogInstance of 'DIALOG_B'. In case of not existing -> create new one */
+		dialogManager.getLastDialogInstance(definition, dialogInstanceName).open();
+	}
 
-  render(){
-    return (
-      <div className="App">
-        <div>
-          <button onClick={this.onBtnAClicked.bind(this)}>Open Dialog A</button>
-          <button onClick={this.onBtnBClicked.bind(this)}>Open Dialog B</button>
-        </div>
-        <DialogManagerComponent manager={dialogManager} />
-      </div>
-    );
-  }
+	render(){
+		return (
+			<div className="App">
+				<div>
+					<button onClick={this.onBtnAClicked.bind(this)}>Open Dialog A</button>
+					<button onClick={this.onBtnBClicked.bind(this)}>Open Dialog B</button>
+				</div>
+				<DialogManagerComponent manager={dialogManager} />
+			</div>
+		);
+	}
 }
 
 export default App;
@@ -160,44 +160,44 @@ export default App;
 ```JSX
 const dialogManager = createDialogManager({}, 'BASE_DM');
 const dialogA = dialogManager.createDialog({
-  title: 'The Dialog Title',
-  body: <DialogBody />,
-  close_by_overlay: false /* will not close when clicking on overlay layer */
+	title: 'The Dialog Title',
+	body: <DialogBody />,
+	close_by_overlay: false /* will not close when clicking on overlay layer */
 });
 
 class App extends React.Component{
 
-  onBtnAClicked(){
-    dialogA.open();
-  }
+	onBtnAClicked(){
+		dialogA.open();
+	}
 
-  render(){
-    return (
-      <div className="App">
-        <div>
-          <button onClick={this.onBtnAClicked.bind(this)}>Open Dialog</button>
-        </div>
-        <DialogManagerComponent manager={dialogManager} />
-      </div>
-    );
-  }
+	render(){
+		return (
+			<div className="App">
+				<div>
+					<button onClick={this.onBtnAClicked.bind(this)}>Open Dialog</button>
+				</div>
+				<DialogManagerComponent manager={dialogManager} />
+			</div>
+		);
+	}
 }
 
 function DialogBody(props){
-  return (
-    <div>
-      <button 
-        onClick={() => {
-          dialogManager.getLastDialogInstance({
-            title: 'I am nested dialog',
-            body: <div>Awesome!</div>
-          }, 'NESTED_DAILOG').open();
-        }}
-      >
-        Open Nested Dialog
-      </button>
-    </div>
-  );
+	return (
+		<div>
+			<button 
+				onClick={() => {
+					dialogManager.getLastDialogInstance({
+						title: 'I am nested dialog',
+						body: <div>Awesome!</div>
+					}, 'NESTED_DAILOG').open();
+				}}
+			>
+				Open Nested Dialog
+			</button>
+		</div>
+	);
 }
 
 export default App;
@@ -210,24 +210,24 @@ const dialogManager = createDialogManager({}, 'BASE_DM');
 
 /* will not open beacuse of the before_open handler returns false */
 const dialogA = dialogManager.createDialog({
-  before_open: (d)=>{
-    return false;
-  }
+	before_open: (d)=>{
+		return false;
+	}
 });
 
 /* will console.log 'on dialog opened' after dialog opening */
 const dialogB = dialogManager.createDialog({
-  on_open: (d)=>{
-    console.log('on dialog opened');
-  }
+	on_open: (d)=>{
+		console.log('on dialog opened');
+	}
 });
 
 /* will not close after clicking on done button beacuse of the before_done handler returns false */
 const dialogC = dialogManager.createDialog({
-  before_done: (d)=>{
-    console.log('e.g. form validation');
-    return false;
-  }
+	before_done: (d)=>{
+		console.log('e.g. form validation');
+		return false;
+	}
 });
 ```
 
@@ -295,8 +295,7 @@ This module is responsible for handling the instantiation of DialogManager and a
 
 **Example**  
 ```js
-const dm = createDialogManager();
-<DialogManagerComponent dialogManager="dm" />
+const dm = createDialogManager();<DialogManagerComponent dialogManager="dm" />
 ```
 
 ***
@@ -322,8 +321,7 @@ It will instantiate a new instance of DialogManager and store it as last instanc
 <a name="module_react-dialog-manager.getLastDMInstance"></a>
 
 #### react-dialog-manager.getLastDMInstance(setting, instanceName) ⇒ [<code>DialogManager</code>](#DialogManager)
-Returns the last instance of DialogManger with the same provided instanceName param.
-In case of, there is no previous instance, it instantiates new one and returns it.
+Returns the last instance of DialogManger with the same provided instanceName param.In case of, there is no previous instance, it instantiates new one and returns it.
 
 **Returns**: [<code>DialogManager</code>](#DialogManager) - dialogManager  
 **Params**
@@ -350,8 +348,7 @@ In case of, there is no previous instance, it instantiates new one and returns i
 <a name="new_DialogManager_new"></a>
 
 #### new DialogManager(setting, [instanceName])
-The instantiation of this class is done by 
-[createDialogManager](#module_react-dialog-manager.createDialogManager)
+The instantiation of this class is done by [createDialogManager](#module_react-dialog-manager.createDialogManager)
 
 **Params**
 
@@ -361,9 +358,7 @@ The instantiation of this class is done by
 
 **Example**  
 ```js
-import {createDialogManager} from 'react-dialog-manager';
-
-const dm = createDialogManager({}, 'baseDM');
+import {createDialogManager} from 'react-dialog-manager';const dm = createDialogManager({}, 'baseDM');
 ```
 
 ***
@@ -449,8 +444,7 @@ Removes (splices) the dialog instance from dialogs,
 <a name="new_Dialog_new"></a>
 
 #### new Dialog(definition, dialogMananger, [instanceName])
-The instantiation of this class is done by 
-[createDialog](#DialogManager+createDialog) of [DialogManager](#DialogManager)
+The instantiation of this class is done by [createDialog](#DialogManager+createDialog) of [DialogManager](#DialogManager)
 
 **Params**
 
@@ -472,10 +466,7 @@ The instantiation of this class is done by
 
 **Example**  
 ```js
-import {createDialogManager} from 'react-dialog-manager';
-
-const dm = createDialogManager({}, 'baseDM');
-const dialog = dm.createDialog({});
+import {createDialogManager} from 'react-dialog-manager';const dm = createDialogManager({}, 'baseDM');const dialog = dm.createDialog({});
 ```
 
 ***
@@ -491,16 +482,14 @@ Add event handler(s) before (open - done - close) actions.
 
 **Example**  
 ```js
-dialog.before('open', (dialog) => true );
-dialog.before('done', [(dialog) => true, (dialog) => true] );
+dialog.before('open', (dialog) => true );dialog.before('done', [(dialog) => true, (dialog) => true] );
 ```
 
 ***
 <a name="Dialog+close"></a>
 
 #### dialog.close()
-First, we invoke all attached-event-handlers of before_close.
-All handlers should return true to go furhter and close (hide) the dialog.
+First, we invoke all attached-event-handlers of before_close.All handlers should return true to go furhter and close (hide) the dialog.
 
 
 ***
@@ -587,16 +576,14 @@ Add event handler(s) once (open - done - close) actions are performed.
 
 **Example**  
 ```js
-dialog.on('done', (dialog) => console.log('dialog has been done') );
-dialog.on('close', [(dialog) => console.log('dialog has been closed'), (dialog) => true] );
+dialog.on('done', (dialog) => console.log('dialog has been done') );dialog.on('close', [(dialog) => console.log('dialog has been closed'), (dialog) => true] );
 ```
 
 ***
 <a name="Dialog+open"></a>
 
 #### dialog.open()
-First, we invoke all attached-event-handlers of before_open.
-All handlers should return true to go furhter and open (show) the dialog.
+First, we invoke all attached-event-handlers of before_open.All handlers should return true to go furhter and open (show) the dialog.
 
 
 ***
@@ -612,13 +599,7 @@ set definition for the dialog
 
 **Example**  
 ```js
-let dialogManager = createDialogsManager();
-let dialog = dialogManager.createDialog();
-dialog.set({
-  title: 'Hello World!',
-  body: 'good morning'
-});
-dialog.set('title', 'New Title Here');
+let dialogManager = createDialogsManager();let dialog = dialogManager.createDialog();dialog.set({	title: 'Hello World!',	body: 'good morning'});dialog.set('title', 'New Title Here');
 ```
 
 ***
