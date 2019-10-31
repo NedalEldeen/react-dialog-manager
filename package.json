@@ -1,0 +1,62 @@
+{
+	"name": "react-dialog-manager",
+	"version": "0.0.1",
+	"description": "Manage dialogs throughout the react applications.",
+	"main": "./dist/index.js",
+	"license": "MIT",
+	"scripts": {
+		"build": "webpack",
+		"test": "jest --watchAll",
+		"readme": "node ./.README/generateREADME.js"
+	},
+	"files": [
+		"dist"
+	],
+	"peerDependencies": {
+		"prop-types": "^15.6.0",
+		"react": "^16.0.0",
+		"react-dom": "^16.0.0"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.6.0",
+		"@babel/core": "^7.6.0",
+		"@babel/plugin-proposal-class-properties": "^7.5.5",
+		"@babel/plugin-transform-react-jsx": "^7.3.0",
+		"@babel/preset-env": "^7.6.0",
+		"@babel/preset-react": "^7.0.0",
+		"babel-loader": "^8.0.6",
+		"css-loader": "^3.2.0",
+		"enzyme": "^3.10.0",
+		"enzyme-adapter-react-16": "^1.14.0",
+		"jest": "^24.9.0",
+		"jsdoc-to-markdown": "^5.0.2",
+		"node-sass": "^4.12.0",
+		"path": "^0.12.7",
+		"prop-types": "^15.6.0",
+		"react": "^16.0.0",
+		"react-dom": "^16.0.0",
+		"sass-loader": "^8.0.0",
+		"style-loader": "^1.0.0",
+		"webpack": "^4.5.0",
+		"webpack-cli": "^3.3.8"
+	},
+	"author": {
+		"name": "Nedal Abo Almaali",
+		"email": "nedal.eldeen@gmail.com",
+		"url": "https://github.com/NedalEldeen"
+	},
+	"repository": {
+		"type" : "git",
+		"url" : "https://github.com/NedalEldeen/react-dialog-manager"
+	},
+	"homepage": "https://github.com/NedalEldeen/react-dialog-manager/#readme",
+	"bugs": "https://github.com/NedalEldeen/react-dialog-manager/issues",
+	"keywords": [
+		"react",
+		"dialog",
+		"react-dialog",
+		"react-dialog-manager",
+		"modal",
+		"react-component"
+	]
+}
