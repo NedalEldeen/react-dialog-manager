@@ -6,45 +6,45 @@ import {createDialogManager, DialogManagerComponent} from 'react-dialog-manager'
 
 const dialogManager = createDialogManager();
 const dialog = dialogManager.createDialog({
-	title: 'The Dialog Title',
-	body: <TestForm  />
+  title: 'The Dialog Title',
+  body: <TestForm  />
 });
 
 class App extends React.Component{
 
-	constructor(props){
-		super(props);
-	}
+  constructor(props){
+    super(props);
+  }
 
-	onOpenBtnClicked(){
-		dialog.open();
-	}
+  onOpenBtnClicked(){
+    dialog.open();
+  }
 
-	onCloseBtnClicked(){
-		dialog.close();
-	}
+  onCloseBtnClicked(){
+    dialog.close();
+  }
 
-	render(){
-		return (
-			<div className="App">
-				<div>
-					<button onClick={this.onOpenBtnClicked.bind(this)}>Open Dialog</button>
-					<button onClick={this.onCloseBtnClicked.bind(this)}>Close Dialog</button>
-				</div>
-				<DialogManagerComponent manager={dialogManager} />
-			</div>
-		);
-	}
+  render(){
+    return (
+      <div className="App">
+        <div>
+          <button onClick={this.onOpenBtnClicked.bind(this)}>Open Dialog</button>
+          <button onClick={this.onCloseBtnClicked.bind(this)}>Close Dialog</button>
+        </div>
+        <DialogManagerComponent manager={dialogManager} />
+      </div>
+    );
+  }
 }
 
 function TestForm(props){
-	/* dialog is passed within props */
-	let {dialog} = props;
-	return (
-		<form>
-			<input type="text" />
-		</form>
-	);
+  /* dialog is passed within props */
+  let {dialog} = props;
+  return (
+    <form>
+      <input type="text" />
+    </form>
+  );
 }
 
 export default App;
